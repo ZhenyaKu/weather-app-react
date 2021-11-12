@@ -1,0 +1,47 @@
+.ForecastDay {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	color: #f2f2f2;
+  margin: 1rem 0;
+}
+
+.ForecastDay__title {
+	width: 100%;
+	font-size: 1rem;
+	text-align: center;
+  font-weight: 600;
+}
+
+.ForecastDay__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ForecastDay__weather-icon {
+	width: 80px;
+	height: 80px;
+}
+
+.ForecastDay__weather-icon:hover {
+	animation-name: icons;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes icons {
+	0% {
+		position: relative;
+		top: 0;
+	}
+	50% {
+		position: relative;
+		top: 0.25rem;
+	}
+	100% {
+		position: relative;
+		top: 0;
+	}
+}

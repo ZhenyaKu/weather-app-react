@@ -1,0 +1,26 @@
+.RequestsHistory {
+	display: block;
+}
+
+.RequestsHistory__title {
+	margin-bottom: 2rem;
+	font-size: 1.2rem;
+}
+
+.RequestsHistory__queries {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.RequestsHistory__queries.item {
+	border: 1px solid white;
+	border-radius: 13px;
+	padding: 6px 12px;
+	background: #eca39d;
+	cursor: pointer;
+  margin: 0 0.5rem 1rem;
+}
+
+.RequestsHistory__queries.item:hover {
+	text-decoration: underline;
+}
