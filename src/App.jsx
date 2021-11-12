@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import Search from "./components/search/search";
 import Current from "./components/current/current";
 import RequestsHistory from "./components/requests-history/requests-history";
 import Forecast from "./components/forecast/forecast";
 import { getCurrentWeatherByCity, getForecastByCity } from "./services/api";
+import { getCity, changeCity } from './store/features/citySlice';
 
 import "./App.css";
 
 const HISTORY_LIMIT = 10;
 
 function App() {
-  const [city, setCity] = useState("Kyiv");
+  const city = useSelector(getCity)
+  const dispatch = useDispatch();
+  const setCity = (cityName) => {
+    dispatch(changeCity(cityName))
+  }
+
   const [currentWeather, setCurrentWeather] = useState();
   const [isCurrentWeatherLoading, setIsCurrentWeatherLoading] =
     useState(true);
@@ -53,9 +60,7 @@ function App() {
     <div className="App">
       <div className="App__container">
         <Search
-          city={city}
           onSearch={search}
-          onChangeSearch={setCity}
           isLoading={isCurrentWeatherLoading || isForecastLoading}
         />
 

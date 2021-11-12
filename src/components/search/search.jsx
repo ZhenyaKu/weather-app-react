@@ -1,6 +1,11 @@
+import { useSelector, useDispatch } from 'react-redux'
+import { getCity, changeCity } from '../../store/features/citySlice';
 import './search.css';
 
-export default function Search({ city, isLoading, onChangeSearch, onSearch }) {
+export default function Search({ isLoading, onSearch }) {
+    const city = useSelector(getCity)
+    const dispatch = useDispatch();
+
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             onSearch()
@@ -16,7 +21,7 @@ export default function Search({ city, isLoading, onChangeSearch, onSearch }) {
                 placeholder="Location"
                 name="search"
                 value={city}
-                onChange={(event) => onChangeSearch(event.target.value)}
+                onChange={(event) => dispatch(changeCity(event.target.value))}
                 onKeyDown={handleKeyDown}
             />
             <button className="Search__button" disabled={isLoading} onClick={() => onSearch()}>{buttonText}</button>
